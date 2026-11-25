@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كراس – واجبات ودروس الثانوية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5fb;--grid:#d9e1f1;--card:#fff;--ink:#1b2a5c;--mute:#5d6b8f;--line:#cfd8ec;--hl:#ffe45c;--hlink:#1b2a5c;--red:#d64045;--ok:#2e9e6b;--okbg:#e2f5ec;--reqbg:#fde8e8;--btn:#1b2a5c;--btnink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10162b;--grid:#1a2342;--card:#18203c;--ink:#e8ecfa;--mute:#9aa6c9;--line:#2c3760;--hl:#ffe45c;--hlink:#10162b;--red:#ff7a7f;--ok:#5fd6a0;--okbg:#17332b;--reqbg:#3a1d26;--btn:#ffe45c;--btnink:#10162b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10162b;--grid:#1a2342;--card:#18203c;--ink:#e8ecfa;--mute:#9aa6c9;--line:#2c3760;--hl:#ffe45c;--hlink:#10162b;--red:#ff7a7f;--ok:#5fd6a0;--okbg:#17332b;--reqbg:#3a1d26;--btn:#ffe45c;--btnink:#10162b;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font-family:"Readex Pro",Tahoma,"Segoe UI",sans-serif;line-height:1.7;min-height:100vh}
+.wrap{max-width:640px;margin:0 auto;padding:16px 14px 110px}
+h1{font-size:28px;margin:6px 0 2px;font-weight:700}
+h1 span{background:var(--hl);color:#10162b;padding:0 10px;border-radius:4px}
+.sub{color:var(--mute);margin:0 0 14px;font-size:14px}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:12px;overflow-x:auto}
+.tab{flex:1;min-width:max-content;background:none;border:0;color:var(--mute);font:inherit;font-weight:500;padding:10px 8px;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
+.count{background:var(--red);color:#fff;border-radius:99px;font-size:12px;padding:1px 8px;margin-inline-start:4px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px}
+.chip{flex:none;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:13px;padding:4px 12px;border-radius:99px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--hl);border-color:var(--hl);color:#10162b;font-weight:500}
+.filters-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.filters-bar select,.filters-bar input{flex:1;min-width:130px;padding:7px 10px;font-size:13px}
+.card{background:var(--card);border:1.5px solid var(--line);border-right:5px solid var(--red);border-radius:6px;padding:14px;margin-bottom:12px}
+.card.solved{border-right-color:var(--ok)}
+.card.lesson{border-right-color:var(--ink)}
+.lesson-title{font-size:17px;font-weight:700;margin:8px 0 4px;color:var(--ink)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--mute)}
+.tag{background:var(--hl);color:#10162b;border-radius:4px;padding:0 8px;font-weight:500}
+.sec-tag{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:4px;padding:0 8px;font-size:12px;font-weight:500}
+.badge{border-radius:4px;padding:0 8px;font-weight:500}
+.badge.req{background:var(--reqbg);color:var(--red)}
+.badge.ok{background:var(--okbg);color:var(--ok)}
+.txt{margin:10px 0;white-space:pre-wrap;word-break:break-word}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+button.b{font:inherit;font-size:14px;border-radius:6px;padding:7px 14px;cursor:pointer;border:1.5px solid var(--ink);background:transparent;color:var(--ink)}
+button.b.main{background:var(--btn);color:var(--btnink);border-color:var(--btn);font-weight:500}
+button.b.red{border-color:var(--red);color:var(--red)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.sols{margin-top:12px;border-top:1.5px dashed var(--line);padding-top:10px}
+.sol{background:var(--bg);border-radius:6px;padding:10px;margin-bottom:8px}
+.sol .top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mute)}
+.vote{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:13px;border-radius:99px;padding:1px 12px;cursor:pointer}
+.vote[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:#fff}
+label{display:block;font-size:14px;font-weight:500;margin:10px 0 4px}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:6px;padding:9px}
+textarea{min-height:96px;resize:vertical}
+.empty{text-align:center;color:var(--mute);padding:36px 10px;border:2px dashed var(--line);border-radius:6px;background:var(--card)}
+.fab{position:fixed;inset-inline-start:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--btn);color:var(--btnink);border:0;border-radius:99px;font:inherit;font-weight:700;padding:13px 22px;box-shadow:0 4px 14px rgba(16,22,43,.35);cursor:pointer;z-index:5}
+.sheet{position:fixed;inset:0;background:rgba(10,14,30,.6);display:none;align-items:flex-end;justify-content:center;z-index:10}
+.sheet.open{display:flex}
+.panel{background:var(--bg);width:100%;max-width:640px;max-height:92%;overflow-y:auto;border-radius:14px 14px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom,0px))}
+.panel h2{margin:0 0 4px;font-size:20px}
+.chk{display:flex;gap:8px;align-items:center;margin-top:12px;font-weight:400}
+.chk input{width:auto}
+.toast{position:fixed;inset-inline:0;bottom:calc(80px + env(safe-area-inset-bottom,0px));margin:auto;width:max-content;max-width:90%;background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:99px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
+.toast.show{opacity:1}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+#chat{display:none}
+#chat.on{display:flex;flex-direction:column;height:calc(100vh - 300px);min-height:360px}
+#clog{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:6px 2px}
+.bm{max-width:84%;padding:9px 13px;border-radius:16px;line-height:1.6;white-space:pre-wrap;word-wrap:break-word}
+.bm.b{background:var(--card);border:1.5px solid var(--line);align-self:flex-start;border-end-start-radius:4px}
+.bm.u{background:var(--btn);color:var(--btnink);align-self:flex-end;border-end-end-radius:4px}
+.cbar{display:flex;gap:8px;padding-top:8px}
+.cbar textarea{min-height:44px;height:44px;border-radius:18px}
+button:disabled{opacity:.55}
+.pic{max-width:100%;max-height:320px;border-radius:6px;border:1.5px solid var(--line);margin:8px 0;display:block}
+.pic[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1><span>كراس</span></h1>
+  <p class="sub">انشر تمرين أو درس فاتك، حل تمارين صحابك، واطلب حل اللي ما فهمتوش.</p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="t-all" aria-selected="true">كل التمارين</button>
+    <button class="tab" role="tab" id="t-req" aria-selected="false">طلبات الحل <span class="count" id="cnt">0</span></button>
+    <button class="tab" role="tab" id="t-les" aria-selected="false">الدروس <span class="count" id="lcnt" style="background:var(--ink)">0</span></button>
+    <button class="tab" role="tab" id="t-bot" aria-selected="false">بوخفيف 😄</button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="filters-bar" id="lfilters" style="display:none">
+    <select id="lf-lvl" aria-label="السنة الدراسية">
+      <option value="الكل">كل السنوات</option>
+      <option>1 ثانوي</option>
+      <option>2 ثانوي</option>
+      <option>3 ثانوي</option>
+    </select>
+    <input id="lf-q" placeholder="ابحث بعنوان الدرس أو القسم...">
+  </div>
+  <div id="list"></div>
+  <div id="chat"><div id="clog"></div><div class="cbar"><textarea id="ct" rows="1" placeholder="اكتب لبوخفيف..."></textarea><button class="b main" id="cs">إرسال</button></div></div>
+</div>
+<button class="fab" id="fab">+ نشر تمرين</button>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="نشر تمرين">
+  <div class="panel">
+    <h2>نشر تمرين</h2>
+    <label for="f-user">اسمك (يظهر مع تمرينك)</label>
+    <input id="f-user" maxlength="24" placeholder="مثال: أمين">
+    <label for="f-sub">المادة</label>
+    <select id="f-sub"></select>
+    <label for="f-lvl">المستوى</label>
+    <select id="f-lvl"><option>1 ثانوي</option><option>2 ثانوي</option><option>3 ثانوي</option></select>
+    <label for="f-txt">نص التمرين</label>
+    <textarea id="f-txt" placeholder="اكتب التمرين هنا"></textarea>
+    <div class="row" style="margin-top:8px"><button type="button" class="b" data-pick="f-cam">📷 صوّر التمرين</button><button type="button" class="b" data-pick="f-gal">🖼️ من الاستوديو</button></div>
+    <input type="file" id="f-cam" accept="image/*" capture="environment" hidden data-img="post"><input type="file" id="f-gal" accept="image/*" hidden data-img="post"><img id="f-prev" class="pic" alt="" hidden>
+    <label class="chk"><input type="checkbox" id="f-req" checked> اطلب حل هذا التمرين</label>
+    <div class="row" style="margin-top:14px">
+      <button class="b main" id="f-go">انشر</button>
+      <button class="b" id="f-x">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div class="sheet" id="lsheet" role="dialog" aria-modal="true" aria-label="نشر درس">
+  <div class="panel">
+    <h2>نشر درس لزملائك</h2>
+    <p class="sub" style="margin-bottom:8px">عاون اللي ما كملش الدرس بلا تسليف كراس ولا تبادل حسابات.</p>
+    <label for="l-user">اسمك (اختياري)</label>
+    <input id="l-user" maxlength="24" placeholder="مثال: تلميذ / ياسمين">
+    <label for="l-sub">المادة</label>
+    <select id="l-sub"></select>
+    <label for="l-lvl">السنة الدراسية</label>
+    <select id="l-lvl"><option>1 ثانوي</option><option>2 ثانوي</option><option>3 ثانوي</option></select>
+    <label for="l-sec">القسم</label>
+    <input id="l-sec" maxlength="30" placeholder="مثال: 1AS علوم 1 أو قسم 2">
+    <label for="l-title">عنوان الدرس</label>
+    <input id="l-title" maxlength="80" placeholder="مثال: الدوال المرجعية أو الحركة المستقيمة">
+    <label for="l-txt">ملخص أو ملاحظات حول الدرس (اختياري)</label>
+    <textarea id="l-txt" placeholder="اكتب أي ملاحظة تفيد اللي ينقل الدرس..."></textarea>
+    <div class="row" style="margin-top:8px"><button type="button" class="b" data-pick="l-cam">📷 صوّر الكراس</button><button type="button" class="b" data-pick="l-gal">🖼️ من الاستوديو</button></div>
+    <input type="file" id="l-cam" accept="image/*" capture="environment" hidden data-img="lesson"><input type="file" id="l-gal" accept="image/*" hidden data-img="lesson"><img id="l-prev" class="pic" alt="" hidden>
+    <div class="row" style="margin-top:14px">
+      <button class="b main" id="l-go">انشر الدرس</button>
+      <button class="b" id="l-x">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import { getFirestore, collection, doc, setDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCBYKY1BqVdF3Z9eWc0nMwUn4rMvxDU1v8",
+  authDomain: "kurras-app-c73a4.firebaseapp.com",
+  projectId: "kurras-app-c73a4",
+  storageBucket: "kurras-app-c73a4.firebasestorage.app",
+  messagingSenderId: "349984507336",
+  appId: "1:349984507336:web:6b0d08f324a51a76feacfd",
+  measurementId: "G-X1PYNHS9T3"
+};
+
+let db = null;
+try {
+  const app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+} catch (e) {
+  db = null;
+}
+
+var SUBJ=["رياضيات","فيزياء","علوم طبيعية","عربية","فرنسية","إنجليزية","فلسفة"];
+var KEY="kurras-v3";
+var S={user:"",items:[],lessons:[],voted:{}};
+var tab="all",filt="الكل",lLvl="الكل",lQuery="",open={};
+
+function loadLocal(){
+  try{
+    var r=localStorage.getItem(KEY);
+    if(r){
+      var p=JSON.parse(r);
+      S=Object.assign({user:"",items:[],lessons:[],voted:{}},p);
+      return;
+    }
+  }catch(e){}
+  S.items=[];S.lessons=[];
+}
+function saveLocal(){
+  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast("مساحة التخزين عمرات، الصور كثار")}
+}
+async function syncDoc(colName,obj){
+  if(!db||!obj)return;
+  try{await setDoc(doc(db,colName,String(obj.id)),obj)}catch(e){}
+}
+async function loadCloud(){
+  if(!db)return;
+  try{
+    var snapI=await getDocs(collection(db,"kurras_items"));
+    var cItems=[];
+    snapI.forEach(function(d){cItems.push(d.data())});
+    if(cItems.length){
+      cItems.sort(function(a,b){return Number(a.id)-Number(b.id)});
+      S.items=cItems;
+    }
+
+    var snapL=await getDocs(collection(db,"kurras_lessons"));
+    var cLessons=[];
+    snapL.forEach(function(d){cLessons.push(d.data())});
+    if(cLessons.length){
+      cLessons.sort(function(a,b){return Number(a.id)-Number(b.id)});
+      S.lessons=cLessons;
+    }
+
+    if(cItems.length||cLessons.length){
+      saveLocal();
+      render();
+    }
+  }catch(e){}
+}
+function save(changedItem,changedLesson){
+  saveLocal();
+  if(changedItem)syncDoc("kurras_items",changedItem);
+  if(changedLesson)syncDoc("kurras_lessons",changedLesson);
+}
+
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function $(id){return document.getElementById(id)}
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2200)}
+
+function render(){
+  var pend=S.items.filter(function(i){return i.requested&&!i.sols.length});
+  $("cnt").textContent=pend.length;
+  $("lcnt").textContent=S.lessons.length;
+
+  $("t-all").setAttribute("aria-selected",tab==="all");
+  $("t-req").setAttribute("aria-selected",tab==="req");
+  $("t-les").setAttribute("aria-selected",tab==="les");
+  $("t-bot").setAttribute("aria-selected",tab==="bot");
+
+  var isBot=tab==="bot";
+  var isLes=tab==="les";
+
+  $("chat").classList.toggle("on",isBot);
+  $("chips").style.display=isBot?"none":"";
+  $("lfilters").style.display=isLes?"flex":"none";
+  $("list").style.display=isBot?"none":"";
+
+  if(isBot){
+    $("fab").style.display="none";
+    chatInit();
+    return;
+  }
+
+  $("fab").style.display="";
+  $("fab").textContent=isLes?"+ نشر درس":"+ نشر تمرين";
+
+  $("chips").innerHTML=["الكل"].concat(SUBJ).map(function(s){
+    return '<button class="chip" data-chip="'+s+'" aria-pressed="'+(s===filt)+'">'+s+'</button>';
+  }).join("");
+
+  if(isLes){
+    var q=lQuery.trim().toLowerCase();
+    var lArr=S.lessons.filter(function(l){
+      var okSub=(filt==="الكل"||l.subject===filt);
+      var okLvl=(lLvl==="الكل"||l.level===lLvl);
+      var hay=((l.title||"")+" "+(l.section||"")+" "+(l.text||"")).toLowerCase();
+      var okQ=(!q||hay.indexOf(q)!==-1);
+      return okSub&&okLvl&&okQ;
+    });
+    if(!lArr.length){
+      $("list").innerHTML='<div class="empty">ما كاين حتى درس مطابق حالياً. إذا كملت درس، صوّرو وانشرو لصحابك.</div>';
+      return;
+    }
+    $("list").innerHTML=lArr.slice().reverse().map(lessonCard).join("");
+    return;
+  }
+
+  var arr=(tab==="req"?pend:S.items).filter(function(i){return filt==="الكل"||i.subject===filt});
+  if(!arr.length){
+    $("list").innerHTML='<div class="empty">'+(tab==="req"?"ما كاين حتى طلب حل مفتوح. كل التمارين محلولة.":"ما كاين حتى تمرين هنا. انشر أول واحد.")+'</div>';
+    return;
+  }
+  $("list").innerHTML=arr.slice().reverse().map(card).join("");
+}
+
+function lessonCard(l){
+  var h='<article class="card lesson"><div class="meta">';
+  h+='<span class="tag">'+esc(l.subject)+'</span>';
+  h+='<span>'+esc(l.level)+'</span>';
+  if(l.section)h+='<span class="sec-tag">القسم: '+esc(l.section)+'</span>';
+  h+='<span>'+esc(l.author||"تلميذ")+'</span></div>';
+  h+='<div class="lesson-title">📘 '+esc(l.title)+'</div>';
+  if(l.text)h+='<div class="txt">'+esc(l.text)+'</div>';
+  if(l.img)h+='<img class="pic" src="'+l.img+'" alt="صورة الدرس: '+esc(l.title)+'">';
+  h+='</article>';
+  return h;
+}
+
+function card(i){
+  var solved=i.sols.length>0;
+  var badge=solved?'<span class="badge ok">'+i.sols.length+' '+(i.sols.length>2?"حلول":"حل")+'</span>':(i.requested?'<span class="badge req">مطلوب حل</span>':'');
+  var h='<article class="card'+(solved?' solved':'')+'"><div class="meta"><span class="tag">'+esc(i.subject)+'</span><span>'+esc(i.level)+'</span><span>'+esc(i.author)+'</span>'+badge+'</div>';
+  h+=(i.text?'<div class="txt">'+esc(i.text)+'</div>':'')+(i.img?'<img class="pic" src="'+i.img+'" alt="صورة التمرين">':'')+'<div class="row" style="margin-top:10px">';
+  h+='<button class="b main" data-act="toggle" data-id="'+i.id+'">'+(open[i.id]?"إخفاء الحلول":"حل هذا التمرين")+'</button>';
+  h+='<button class="b" data-act="ai" data-id="'+i.id+'"'+(aiBusy[i.id]?' disabled':'')+'>'+(aiBusy[i.id]?"بوخفيف يفكر...":"بوخفيف يحلو 😄")+'</button>';
+  if(!i.requested&&!solved)h+='<button class="b red" data-act="request" data-id="'+i.id+'">اطلب حل</button>';
+  h+='</div>';
+  if(open[i.id]){
+    h+='<div class="sols">';
+    h+=i.sols.slice().sort(function(a,b){return b.votes-a.votes}).map(function(s){
+      return '<div class="sol"><div class="top"><span>'+esc(s.author)+(s.ai?' <span class="tag">ذكاء اصطناعي، راجعو</span>':'')+'</span><button class="vote" data-act="vote" data-id="'+i.id+'" data-sid="'+s.id+'" aria-pressed="'+(!!S.voted[s.id])+'">مفيد ('+s.votes+')</button></div><div class="txt" style="margin:6px 0 0">'+esc(s.text)+'</div>'+(s.img?'<img class="pic" src="'+s.img+'" alt="صورة الحل">':'')+'</div>';
+    }).join("");
+    if(!i.sols.length)h+='<p class="sub">ما كاين حتى حل. كون أول واحد.</p>';
+    h+='<label for="s-'+i.id+'">حلك</label><textarea id="s-'+i.id+'" placeholder="اكتب خطوات الحل"></textarea><div class="row" style="margin-top:8px"><button type="button" class="b" data-pick="pc-'+i.id+'">📷 صوّر</button><button type="button" class="b" data-pick="pg-'+i.id+'">🖼️ استوديو</button><button class="b main" data-act="send" data-id="'+i.id+'">انشر الحل</button></div><span class="sub" id="ps-'+i.id+'">'+(pendS[i.id]?"✓ صورة مرفقة":"")+'</span><input type="file" id="pc-'+i.id+'" accept="image/*" capture="environment" hidden data-img="sol" data-id="'+i.id+'"><input type="file" id="pg-'+i.id+'" accept="image/*" hidden data-img="sol" data-id="'+i.id+'"></div>';
+  }
+  return h+'</article>';
+}
+function find(id){return S.items.filter(function(i){return i.id==id})[0]}
+function who(){
+  if(!S.user){var n=prompt("اسمك؟");S.user=(n||"").trim().slice(0,24)||"تلميذ"}
+  return S.user;
+}
+
+document.addEventListener("click",function(e){
+  var pk=e.target.closest("[data-pick]");
+  if(pk){var fi=$(pk.getAttribute("data-pick"));if(fi)fi.click();return}
+  var c=e.target.closest("[data-chip]");
+  if(c){filt=c.getAttribute("data-chip");render();return}
+  var b=e.target.closest("[data-act]");
+  if(!b)return;
+  var act=b.getAttribute("data-act"),it=find(b.getAttribute("data-id"));
+  if(!it)return;
+  if(act==="toggle"){open[it.id]=!open[it.id];render()}
+  else if(act==="request"){it.requested=true;save(it,null);render();toast("تنشر طلبك في قسم طلبات الحل")}
+  else if(act==="vote"){
+    var sid=b.getAttribute("data-sid"),s=it.sols.filter(function(x){return x.id==sid})[0];
+    if(S.voted[sid]){S.voted[sid]=false;s.votes--}else{S.voted[sid]=true;s.votes++}
+    save(it,null);render();
+  }
+  else if(act==="ai"){solveAI(it)}
+  else if(act==="send"){
+    var ta=$("s-"+it.id),v=ta.value.trim();
+    if(!v&&!pendS[it.id]){toast("اكتب الحل ولا صوّرو قبل النشر");ta.focus();return}
+    it.sols.push({id:Date.now(),author:who(),text:v,img:pendS[it.id]||"",votes:0});delete pendS[it.id];
+    save(it,null);render();toast("تنشر حلك");
+  }
+});
+
+$("t-all").onclick=function(){tab="all";render()};
+$("t-r
