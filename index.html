@@ -5,67 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>كراس – واجبات ودروس الثانوية</title>
 <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f2f5fb;--grid:#d9e1f1;--card:#fff;--ink:#1b2a5c;--mute:#5d6b8f;--line:#cfd8ec;--hl:#ffe45c;--red:#d64045;--ok:#2e9e6b;--okbg:#e2f5ec;--reqbg:#fde8e8;--btn:#1b2a5c;--btnink:#fff;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#10162b;--grid:#1a2342;--card:#18203c;--ink:#e8ecfa;--mute:#9aa6c9;--line:#2c3760;--red:#ff7a7f;--ok:#5fd6a0;--okbg:#17332b;--reqbg:#3a1d26;--btn:#ffe45c;--btnink:#10162b;color-scheme:dark}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg) linear-gradient(var(--grid) 1px,transparent 1px) 0 0/24px 24px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);color:var(--ink);font-family:"Readex Pro",Tahoma,sans-serif;line-height:1.7;min-height:100vh;padding-top:env(safe-area-inset-top,0)}
-.wrap{max-width:640px;margin:0 auto;padding:16px 14px 110px}
-h1{font-size:28px;margin:6px 0 2px}
-h1 span{background:var(--hl);color:#10162b;padding:0 10px;border-radius:4px}
-.sub{color:var(--mute);margin:0 0 14px;font-size:14px}
-.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:12px;overflow-x:auto}
-.tab{flex:1;min-width:max-content;background:none;border:0;color:var(--mute);font:inherit;font-weight:500;padding:10px 8px;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer}
-.tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--red)}
-.count{background:var(--red);color:#fff;border-radius:99px;font-size:12px;padding:1px 8px;margin-inline-start:4px}
-.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px}
-.chip{flex:none;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:13px;padding:4px 12px;border-radius:99px;cursor:pointer}
-.chip[aria-pressed=true]{background:var(--hl);border-color:var(--hl);color:#10162b;font-weight:500}
-.fbar{display:none;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-.fbar select,.fbar input{flex:1;min-width:130px;padding:7px 10px;font-size:13px}
-.card{background:var(--card);border:1.5px solid var(--line);border-right:5px solid var(--red);border-radius:6px;padding:14px;margin-bottom:12px}
-.card.solved{border-right-color:var(--ok)}.card.lesson{border-right-color:var(--ink)}
-.lt{font-size:17px;font-weight:700;margin:8px 0 4px}
-.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--mute)}
-.tag{background:var(--hl);color:#10162b;border-radius:4px;padding:0 8px;font-weight:500}
-.sec{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:4px;padding:0 8px;font-size:12px}
-.badge{border-radius:4px;padding:0 8px;font-weight:500}
-.badge.req{background:var(--reqbg);color:var(--red)}.badge.ok{background:var(--okbg);color:var(--ok)}
-.txt{margin:10px 0;white-space:pre-wrap;word-break:break-word}
-.row{display:flex;flex-wrap:wrap;gap:8px}
-button.b{font:inherit;font-size:14px;border-radius:6px;padding:7px 14px;cursor:pointer;border:1.5px solid var(--ink);background:transparent;color:var(--ink)}
-button.b.main{background:var(--btn);color:var(--btnink);border-color:var(--btn);font-weight:500}
-button.b.red{border-color:var(--red);color:var(--red)}
-button:disabled{opacity:.55}
-:focus-visible{outline:3px solid var(--red);outline-offset:2px}
-.sols{margin-top:12px;border-top:1.5px dashed var(--line);padding-top:10px}
-.sol{background:var(--bg);border-radius:6px;padding:10px;margin-bottom:8px}
-.sol .top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mute)}
-.vote{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:13px;border-radius:99px;padding:1px 12px;cursor:pointer}
-.vote[aria-pressed=true]{background:var(--ok);border-color:var(--ok);color:#fff}
-label{display:block;font-size:14px;font-weight:500;margin:10px 0 4px}
-input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:6px;padding:9px}
-textarea{min-height:96px;resize:vertical}
-.empty{text-align:center;color:var(--mute);padding:36px 10px;border:2px dashed var(--line);border-radius:6px;background:var(--card)}
-.fab{position:fixed;inset-inline-start:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--btn);color:var(--btnink);border:0;border-radius:99px;font:inherit;font-weight:700;padding:13px 22px;box-shadow:0 4px 14px rgba(16,22,43,.35);cursor:pointer;z-index:5}
-.sheet{position:fixed;inset:0;background:rgba(10,14,30,.6);display:none;align-items:flex-end;justify-content:center;z-index:10}
-.sheet.open{display:flex}
-.panel{background:var(--bg);width:100%;max-width:640px;max-height:92%;overflow-y:auto;border-radius:14px 14px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom,0px))}
-.panel h2{margin:0 0 4px;font-size:20px}
-.chk{display:flex;gap:8px;align-items:center;margin-top:12px;font-weight:400}.chk input{width:auto}
-.toast{position:fixed;inset-inline:0;bottom:calc(80px + env(safe-area-inset-bottom,0px));margin:auto;width:max-content;max-width:90%;background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:99px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
-.toast.show{opacity:1}
-#chat{display:none}
-#chat.on{display:flex;flex-direction:column;height:calc(100vh - 300px);min-height:360px}
-#clog{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:6px 2px}
-.bm{max-width:84%;padding:9px 13px;border-radius:16px;white-space:pre-wrap;word-wrap:break-word}
-.bm.b{background:var(--card);border:1.5px solid var(--line);align-self:flex-start;border-end-start-radius:4px}
-.bm.u{background:var(--btn);color:var(--btnink);align-self:flex-end;border-end-end-radius:4px}
-.cbar{display:flex;gap:8px;padding-top:8px}
-.cbar textarea{min-height:44px;height:44px;border-radius:18px}
-.pic{max-width:100%;max-height:320px;border-radius:6px;border:1.5px solid var(--line);margin:8px 0;display:block}
-.pic[hidden]{display:none}
-</style>
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 <div class="wrap">
@@ -84,6 +24,7 @@ textarea{min-height:96px;resize:vertical}
   </div>
   <div id="list"></div>
   <div id="chat"><div id="clog"></div><div class="cbar"><textarea id="ct" rows="1" placeholder="اكتب لبوخفيف..."></textarea><button class="b main" id="cs">إرسال</button></div></div>
+<p class="sub" style="text-align:center;margin-top:24px">كراس v2</p>
 </div>
 <button class="fab" id="fab">+ نشر تمرين</button>
 
@@ -114,136 +55,8 @@ textarea{min-height:96px;resize:vertical}
 </div></div>
 <div class="toast" id="toast"></div>
 
-<script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import {getFirestore,collection,doc,setDoc,getDocs,updateDoc,arrayUnion,increment} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
-
-// رابط الوسيط (Worker) اللي يحمل مفتاح Gemini. لا تحط المفتاح هنا أبدا.
-const AI_URL="PUT_YOUR_WORKER_URL_HERE";
-const firebaseConfig={apiKey:"AIzaSyCBYKY1BqVdF3Z9eWc0nMwUn4rMvxDU1v8",authDomain:"kurras-app-c73a4.firebaseapp.com",projectId:"kurras-app-c73a4",storageBucket:"kurras-app-c73a4.firebasestorage.app",messagingSenderId:"349984507336",appId:"1:349984507336:web:6b0d08f324a51a76feacfd"};
-let db=null;try{db=getFirestore(initializeApp(firebaseConfig))}catch(e){}
-
-const SUBJ=["رياضيات","فيزياء","علوم طبيعية","عربية","فرنسية","إنجليزية","فلسفة"],KEY="kurras-v3",IC="kurras_items",LC="kurras_lessons";
-const PERSONA="راك بوخفيف: صاحب سطايفي (من سطيف) خفيف الدم، واحد من هاديك الصحابة اللي تفضفضلهم. تهدر باللهجة السطايفية فقط (بالحروف العربية)، بنبرة عفوية ودافئة، ومن حين لآخر تمزح على روحك بنكتة خفيفة. كي يفضفضلك المستخدم: تسمع بصح، تتعاطف، تسقسي سؤال واحد صغير في كل مرة، وماتمزحش على حزنو. وكي يطلب منك تلميذ مساعدة في تمرين، اشرحلو الخطوات بوضوح وبساطة ماشي النتيجة وحدها. جاوب باختصار (2 إلى 4 جمل). ماتعطيش نصائح طبية ولا قانونية مفصلة. إذا فهمت بلي الشخص يفكر يأذي روحو أو في خطر، ولّي جدي وحنين، قولو بلي يهمك، وشجعو يهدر مع شخص يثق فيه ولا يتصل بالإسعاف ولا بخط مساعدة في بلادو. ماتخرجش من الشخصية.";
-const PERSONA_HW="راك بوخفيف: صاحب سطايفي خفيف الدم، تهدر باللهجة السطايفية (بالحروف العربية) بنبرة دافئة. تحل تمارين الثانوية خطوة بخطوة، بوضوح وبساطة، وتشرح ليش دير كل خطوة.";
-
-let S={user:"",items:[],lessons:[],voted:{}},tab="all",filt="الكل",lLvl="الكل",lQ="",open={},aiBusy={},pendS={},pendP="",pendL="",chatH=[],chatBusy=false,chatReady=false;
-const $=id=>document.getElementById(id);
-const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const safeImg=u=>/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+\/=]+$/.test(u||"")?u:"";
-const imgTag=(u,alt)=>safeImg(u)?'<img class="pic" src="'+u+'" alt="'+esc(alt)+'">':"";
-const votesOf=(i,s)=>(i.vt&&i.vt[s.id])||0;
-function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200)}
-
-/* ---------- التخزين المحلي والسحابي ---------- */
-function loadLocal(){try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}}
-function saveLocal(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast("مساحة التخزين عمرات، الصور كثار")}}
-const ref=(c,id)=>doc(db,c,String(id));
-async function upd(i,data){if(!db)return;try{await updateDoc(ref(IC,i.id),data)}catch(e){try{await setDoc(ref(IC,i.id),i)}catch(e2){}}}
-async function put(c,o){if(!db)return;try{await setDoc(ref(c,o.id),o)}catch(e){}}
-const pushSol=(i,s)=>upd(i,{sols:arrayUnion(s)});
-const pushVote=(i,sid,d)=>upd(i,{["vt."+sid]:increment(d)});
-function mergeLessons(loc,cl){const m={};loc.forEach(x=>m[x.id]=x);cl.forEach(x=>m[x.id]=x);return Object.values(m).sort((a,b)=>a.id-b.id)}
-async function loadCloud(){
-  if(!db)return;
-  try{
-    const [a,b]=await Promise.all([getDocs(collection(db,IC)),getDocs(collection(db,LC))]);
-    const ci={},cl=[];a.forEach(d=>{const x=d.data();ci[x.id]=x});b.forEach(d=>cl.push(d.data()));
-    const items={};S.items.forEach(x=>items[x.id]=x);
-    Object.keys(ci).forEach(id=>{
-      const c=ci[id],l=items[id];c.sols=c.sols||[];c.vt=c.vt||{};
-      if(l){
-        (l.sols||[]).forEach(s=>{if(!c.sols.some(x=>x.id==s.id)){c.sols.push(s);pushSol(c,s)}});
-        if(l.requested&&!c.requested){c.requested=true;upd(c,{requested:true})}
-      }
-      items[id]=c;
-    });
-    Object.keys(items).forEach(id=>{if(!ci[id])put(IC,items[id])});
-    const cids={};cl.forEach(x=>cids[x.id]=1);
-    S.lessons.forEach(x=>{if(!cids[x.id])put(LC,x)});
-    S.items=Object.values(items).sort((x,y)=>x.id-y.id);
-    S.lessons=mergeLessons(S.lessons,cl);
-    saveLocal();render();
-  }catch(e){console.warn(e)}
-}
-
-/* ---------- الصور ---------- */
-function shrink(file,cb){
-  const r=new FileReader();
-  r.onload=()=>{const im=new Image();
-    im.onload=()=>{const k=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext("2d").drawImage(im,0,0,c.width,c.height);cb(c.toDataURL("image/jpeg",.72))};
-    im.onerror=()=>toast("الصورة ما تقراتش");im.src=r.result};
-  r.readAsDataURL(file);
-}
-const imgPart=u=>{const s=safeImg(u);return s?{mime:"image/jpeg",data:s.split(",")[1]}:null};
-
-/* ---------- Gemini عبر الوسيط ---------- */
-async function gemini(system,messages,search){
-  if(AI_URL.indexOf("http")!==0)throw new Error("nourl");
-  const r=await fetch(AI_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({system,messages,search:!!search})});
-  if(!r.ok)throw new Error("http"+r.status);
-  const j=await r.json();if(!j.text)throw new Error("empty");return j.text;
-}
-const aiErr=e=>e&&e.message==="nourl"?"حط رابط الوسيط في AI_URL داخل الكود.":"سمحلي، صرات مشكلة صغيرة. عاود جرب.";
-
-async function solveAI(it){
-  if(aiBusy[it.id])return;aiBusy[it.id]=true;render();
-  const p="المادة: "+it.subject+"\nالمستوى: "+it.level+"\nالتمرين:\n"+(it.text||"(التمرين في الصورة المرفقة)")+"\n\nاكتب الحل خطوة بخطوة، واضح ومختصر، وختم بجملة وحدة تشجع التلميذ.";
-  try{
-    const text=await gemini(PERSONA_HW,[{role:"user",text:p,image:imgPart(it.img)}],false);
-    const s={id:Date.now(),author:"بوخفيف 🤖",ai:true,text:text,img:""};
-    it.sols.push(s);open[it.id]=true;saveLocal();pushSol(it,s);toast("بوخفيف كتب الحل");
-  }catch(e){toast(aiErr(e))}
-  aiBusy[it.id]=false;render();
-}
-function cadd(cls,txt){const d=document.createElement("div");d.className="bm "+cls;d.textContent=txt;$("clog").appendChild(d);$("clog").scrollTop=$("clog").scrollHeight;return d}
-function chatInit(){
-  if(chatReady)return;chatReady=true;
-  const g="أهلا وسهلا! 😄 كيف حالك؟ تفضل شوية، فضفض لخوك بوخفيف، ولا قولي واش من تمرين راك حاب نعاونوك فيه.";
-  cadd("b",g);chatH.push({role:"user",text:"سلام"},{role:"model",text:g});
-}
-async function chatSend(){
-  const v=$("ct").value.trim();if(!v||chatBusy)return;
-  $("ct").value="";cadd("u",v);chatH.push({role:"user",text:v});chatBusy=true;$("cs").disabled=true;
-  const bub=cadd("b","...");
-  try{const t=await gemini(PERSONA,chatH,true);bub.textContent=t;chatH.push({role:"model",text:t})}
-  catch(e){bub.textContent=aiErr(e);chatH.pop()}
-  chatBusy=false;$("cs").disabled=false;
-}
-
-/* ---------- العرض ---------- */
-function render(){
-  const pend=S.items.filter(i=>i.requested&&!i.sols.length);
-  $("cnt").textContent=pend.length;$("lcnt").textContent=S.lessons.length;
-  ["all","req","les","bot"].forEach(k=>$("t-"+(k==="all"?"all":k)).setAttribute("aria-selected",tab===k));
-  const isBot=tab==="bot",isLes=tab==="les";
-  $("chat").classList.toggle("on",isBot);
-  $("chips").style.display=isBot?"none":"";$("list").style.display=isBot?"none":"";
-  $("lfilters").style.display=isLes?"flex":"none";
-  $("fab").style.display=isBot?"none":"";$("fab").textContent=isLes?"+ نشر درس":"+ نشر تمرين";
-  if(isBot){chatInit();return}
-  $("chips").innerHTML=["الكل"].concat(SUBJ).map(s=>'<button class="chip" data-chip="'+s+'" aria-pressed="'+(s===filt)+'">'+s+'</button>').join("");
-  if(isLes){
-    const q=lQ.trim().toLowerCase();
-    const arr=S.lessons.filter(l=>(filt==="الكل"||l.subject===filt)&&(lLvl==="الكل"||l.level===lLvl)&&(!q||((l.title||"")+" "+(l.section||"")+" "+(l.text||"")).toLowerCase().indexOf(q)!==-1));
-    $("list").innerHTML=arr.length?arr.slice().reverse().map(lessonCard).join(""):'<div class="empty">ما كاين حتى درس مطابق حاليا. إذا كملت درس، صوّرو وانشرو لصحابك.</div>';
-    return;
-  }
-  const arr=(tab==="req"?pend:S.items).filter(i=>filt==="الكل"||i.subject===filt);
-  $("list").innerHTML=arr.length?arr.slice().reverse().map(card).join(""):'<div class="empty">'+(tab==="req"?"ما كاين حتى طلب حل مفتوح. كل التمارين محلولة.":"ما كاين حتى تمرين هنا. انشر أول واحد.")+'</div>';
-}
-function lessonCard(l){
-  return '<article class="card lesson"><div class="meta"><span class="tag">'+esc(l.subject)+'</span><span>'+esc(l.level)+'</span>'+(l.section?'<span class="sec">القسم: '+esc(l.section)+'</span>':'')+'<span>'+esc(l.author||"تلميذ")+'</span></div><div class="lt">📘 '+esc(l.title)+'</div>'+(l.text?'<div class="txt">'+esc(l.text)+'</div>':'')+imgTag(l.img,"صورة الدرس: "+l.title)+'</article>';
-}
-function card(i){
-  const solved=i.sols.length>0;
-  const badge=solved?'<span class="badge ok">'+i.sols.length+' '+(i.sols.length>2?"حلول":"حل")+'</span>':(i.requested?'<span class="badge req">مطلوب حل</span>':'');
-  let h='<article class="card'+(solved?' solved':'')+'"><div class="meta"><span class="tag">'+esc(i.subject)+'</span><span>'+esc(i.level)+'</span><span>'+esc(i.author)+'</span>'+badge+'</div>';
-  h+=(i.text?'<div class="txt">'+esc(i.text)+'</div>':'')+imgTag(i.img,"صورة التمرين")+'<div class="row" style="margin-top:10px">';
-  h+='<button class="b main" data-act="toggle" data-id="'+i.id+'">'+(open[i.id]?"إخفاء الحلول":"حل هذا التمرين")+'</button>';
-  h+='<button class="b" data-act="ai" data-id="'+i.id+'"'+(aiBusy[i.id]?' disabled':'')+'>'+(aiBusy[i.id]?"بوخفيف يفكر...":"بوخفيف يحلو 😄")+'</button>';
-  if(!i.requested&&!solved)h+='<button class="b red" data-act="request" data-id="'+i.id+'">اطلب حل</button>';
-  h+='</div>';
-  if(open[i.id]){
-    h+='<div class="sols">'+i.sols.slice().sort((a,b)=>votesOf(i,b)-votesOf(i,a)).map(s=>
-      '<div class="sol"><div class="top"><span>'+esc(s.author)+(s.ai?' <span class="tag">ذكاء اصطناعي، راجعو</span>':'')+'</span><button class="vote" data-act="vote" data-id="'+i.id+'" data-sid="'+s.id+'" aria-pressed="'+(!!S.voted[s.id])+'">مفيد ('+vote
+<script>window.addEventListener("error",function(e){var d=document.createElement("pre");d.style.cssText="color:#fff;background:#b3261e;padding:8px;direction:ltr;white-space:pre-wrap;font-size:12px;margin:0";d.textContent="خطأ: "+e.message+" (سطر "+e.lineno+")";document.body.insertBefore(d,document.body.firstChild)});</script>
+<script type="module" src="app.js?v=2"></script>
+</body>
+                                            </html>
+                                                        
